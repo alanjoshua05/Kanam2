@@ -41,6 +41,7 @@ if fil is not None:
 
             # Dropdown for event selection
             selected_event = st.selectbox("Select the Event", options=sorted(unique_events))
+            
 
             if st.button("Fetch"):
                 # Filter participants for the selected event
@@ -49,6 +50,7 @@ if fil is not None:
                 )]
 
                 # Display the filtered results
+                st.subheader(f"Count : {len(df_filtered[required_columns])}")
                 st.dataframe(df_filtered[required_columns])  # Show only Name, Email, Mobile
 
     except Exception as e:
